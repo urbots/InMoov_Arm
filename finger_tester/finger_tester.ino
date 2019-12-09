@@ -17,7 +17,7 @@ void setup() {
   Serial.begin(9600);
   Serial.println("INSTRUCIONES:\n<servo idx> <angulo>\n\n0 MENIQUE\n1 ANULAR\n2 CORAZON\n3 INDICE\n4 PULGAR\n5 MUNECA");
 
-  servos[0].attach(MENIQUE);
+  servos[0].attach(MENYIQUE);
   servos[1].attach(ANULAR);
   servos[2].attach(CORAZON);
   servos[3].attach(INDICE);
@@ -35,7 +35,7 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     idx = Serial.parseInt();
-    servos[idx] = Serial.parseInt();
+    servos[idx].write(Serial.parseInt());
   }
 
   delay(5);
